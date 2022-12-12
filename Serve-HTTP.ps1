@@ -1,0 +1,2 @@
+﻿$data = "potato"
+$listener = New-Object System.Net.HttpListener;$listener.Prefixes.Add("http://localhost:8080/");$listener.Start();while ($listener.IsListening){$context = $listener.GetContext();$request = $context.Request;$response = $context.Response; $buffer = [System.Text.Encoding]::UTF8.GetBytes($data); $response.OutputStream.Write($buffer, 0, $buffer.Length); $response.Close() }
